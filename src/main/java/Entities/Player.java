@@ -130,6 +130,21 @@ public class Player extends Entity{
             if(collisionHandler.isOnLava(hitbox)){ //Falls into lava tile
                 keyHandler.spacePressed = false;
                 gamePanel.gameState = GamePanel.GAME_OVER;
+
+                //Resets player position based on current map to avoid false update of hitbox coordinates
+                switch(GamePanel.currentMap) {
+                    case 0:
+                    case 1:
+                        gamePanel.spawnPlayer(GamePanel.trueTileSize * 2, GamePanel.trueTileSize * 9);
+                        break;
+                    case 2:
+                    case 3:
+                    case 4:
+                        gamePanel.spawnPlayer(GamePanel.trueTileSize, GamePanel.trueTileSize * 9);
+                        break;
+                }
+
+
                 gamePanel.stopMusic();
                 gamePanel.playSFX(1);
             }

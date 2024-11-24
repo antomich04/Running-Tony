@@ -113,10 +113,10 @@ public class GamePanel extends Scene implements Runnable{
             //Resets player position based on current map
             switch(currentMap) {
                 case 0:
-                case 2:
+                case 1:
                     spawnPlayer(GamePanel.trueTileSize * 2, GamePanel.trueTileSize * 9);
                     break;
-                case 1:
+                case 2:
                 case 3:
                 case 4:
                     spawnPlayer(GamePanel.trueTileSize, GamePanel.trueTileSize * 9);

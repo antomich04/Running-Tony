@@ -54,6 +54,6 @@ public class CollisionHandler{
 
     //Checks if player fell into lava
     public boolean isOnLava(Rectangle hitbox){
-        return (hitbox.getY() + hitbox.getHeight()+2)>=GamePanel.screenHeight; //Lava tiles are placed in the bottom row of the map
+        return (hitbox.getY() + hitbox.getHeight()+2)>=GamePanel.screenHeight-15; //Lava tiles are placed in the bottom row of the map
     }
 }

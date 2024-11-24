@@ -91,8 +91,8 @@ public class KeyInputHandler implements EventListener {
             }
         }else if(gamePanel.gameState==GamePanel.GAME_OVER){
             if(code==KeyCode.R){ //RESTART pressed
-                gamePanel.gameState = gamePanel.PLAYING;
                 gamePanel.spawnPlayer(100, GamePanel.screenHeight - (2 * GamePanel.trueTileSize)+5);
+                gamePanel.gameState = gamePanel.PLAYING;
                 gamePanel.stopSFX();
                 gamePanel.playMusic(0);
             }else if(code==KeyCode.X){ //EXIT pressed, exits to main menu
