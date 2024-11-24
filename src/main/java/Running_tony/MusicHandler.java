@@ -1,46 +1,50 @@
 package Running_tony;
 
-import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.util.Objects;
 
+public class MusicHandler{
+    MediaPlayer mediaPlayer;
+    Media[] musicMedia = new Media[4];
 
-import java.net.URL;
-
-public class MusicHandler {
-    AudioClip audioClip;
-    URL[] musicURL = new URL[4];
     public MusicHandler(){
-        musicURL[0] = getClass().getResource("/Music/MainMusic.wav");
-        musicURL[1] = getClass().getResource("/Music/GameOver.wav");
-        musicURL[2] = getClass().getResource("/Music/MenuMusic.wav");
-        musicURL[3] = getClass().getResource("/Music/EndingMusic.wav");
+        musicMedia[0] = new Media(Objects.requireNonNull(getClass().getResource("/Music/MainMusic.wav")).toString());
+        musicMedia[1] = new Media(Objects.requireNonNull(getClass().getResource("/Music/GameOver.wav")).toString());
+        musicMedia[2] = new Media(Objects.requireNonNull(getClass().getResource("/Music/MenuMusic.wav")).toString());
+        musicMedia[3] = new Media(Objects.requireNonNull(getClass().getResource("/Music/EndingMusic.wav")).toString());
     }
 
     public void setFile(int index){
-        audioClip = new AudioClip(musicURL[index].toString());
+        if(mediaPlayer!=null){
+            mediaPlayer.stop();
+        }
+        mediaPlayer = new MediaPlayer(musicMedia[index]);
     }
 
     public void start(){
-        if (audioClip != null && !audioClip.isPlaying()) {
-            audioClip.play();
+        if(mediaPlayer!=null){
+            mediaPlayer.play();
         }
     }
 
     public void loopMusic(){
-        if (audioClip != null) {
-            audioClip.setCycleCount(AudioClip.INDEFINITE);
+        if(mediaPlayer!=null){
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            mediaPlayer.play();
         }
     }
 
     public void loopSFX(){
-        if (audioClip != null) {
-            audioClip.setCycleCount(0);
+        if(mediaPlayer!=null){
+            mediaPlayer.setCycleCount(0);
+            mediaPlayer.play();
         }
     }
 
     public void stop(){
-        if (audioClip != null && audioClip.isPlaying()) {
-            audioClip.stop();
+        if(mediaPlayer!=null){
+            mediaPlayer.stop();
         }
     }
-
 }

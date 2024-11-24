@@ -5,9 +5,7 @@ import Running_tony.GamePanel;
 import Running_tony.KeyInputHandler;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-
 import java.util.Objects;
 
 public class Player extends Entity{

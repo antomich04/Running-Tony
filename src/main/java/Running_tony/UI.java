@@ -17,14 +17,14 @@ public class UI {
     GamePanel gamePanel;
     GraphicsContext gc;
     Font font = new Font("Arial",40);
-    Font largeFont = new Font("Arial",80);
+    Font largeFont = new Font("Arial",76);
     Font smallFont = new Font("Arial",26);
     int menuSelector = -1;
     int pauseSelector = -1;
     Image indicator = new Image("indicator.png");
 
     Text aboutText;
-    DecimalFormat df = new DecimalFormat("#0.00");
+    DecimalFormat df = new DecimalFormat("#0.00"); //Used to format the play time counter to 2 decimals
     public UI(GamePanel gamePanel){
         this.gamePanel = gamePanel;
     }
@@ -97,17 +97,19 @@ public class UI {
 
     private void drawPauseScreen() {
 
-        //Background color
-        gc.setFill(Color.LIGHTSKYBLUE);
-        gc.fillRect(GamePanel.trueTileSize*5,GamePanel.trueTileSize*3,GamePanel.trueTileSize*10, GamePanel.trueTileSize*6);
+        //Background, first oval acts as a border
+        gc.setFill(Color.ANTIQUEWHITE);
+        gc.fillOval(GamePanel.trueTileSize*5 - 5, GamePanel.trueTileSize*3 - 5,GamePanel.trueTileSize*10 + 10, GamePanel.trueTileSize*6 + 10);
 
+        gc.setFill(Color.LIGHTSKYBLUE);
+        gc.fillOval(GamePanel.trueTileSize*5,GamePanel.trueTileSize*3, GamePanel.trueTileSize*10,GamePanel.trueTileSize*6);
 
         String pauseText = "PAUSED";
         gc.setFont(largeFont);
         gc.setFill(Color.WHITE);
 
 
-        double x = GamePanel.trueTileSize * 8;
+        double x = GamePanel.trueTileSize * 7.75;
         double y = GamePanel.trueTileSize*4.5;
         gc.fillText(pauseText, x, y);
 
@@ -182,9 +184,12 @@ public class UI {
 
 
     private void drawControlsScreen(){
-        //Background color
+        //Background, first oval acts as a border
+        gc.setFill(Color.ANTIQUEWHITE);
+        gc.fillOval(GamePanel.trueTileSize*5 - 5, GamePanel.trueTileSize*3 - 5,GamePanel.trueTileSize*10 + 10, GamePanel.trueTileSize*6 + 10);
+
         gc.setFill(Color.LIGHTSKYBLUE);
-        gc.fillRect(GamePanel.trueTileSize*5,GamePanel.trueTileSize*3,GamePanel.trueTileSize*10, GamePanel.trueTileSize*6);
+        gc.fillOval(GamePanel.trueTileSize*5,GamePanel.trueTileSize*3,GamePanel.trueTileSize*10, GamePanel.trueTileSize*6);
 
         String controlsText = "MOVE LEFT: A";
         gc.setFont(smallFont);
