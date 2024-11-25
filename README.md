@@ -1,6 +1,6 @@
 <i>RUNNING TONY</i>
 
-Running Tony is a project made as part of the course "Human-Computer Interaction" during the fifth semester at International Hellenic University. It is a simple 2d platformer game and it's goal is to successfully traverse through all levels without dying. <br>
+Running Tony is a project made as part of the course "Human-Computer Interaction" during the fifth semester at International Hellenic University. It is a simple 2d platformer game and it's goal is to successfully traverse through all levels without dying. The user can navigate through the menu options using W and S as well as ↑ and ↓ on his keyboard. <br>
 The controls of the game are the following:
   <ul>
     <li>Move left: A</li>
