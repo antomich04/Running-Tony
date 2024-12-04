@@ -146,7 +146,7 @@ public class Player extends Entity{
 
 
                 gamePanel.stopMusic();
-                gamePanel.playSFX(1);
+                gamePanel.playSFX(0);
             }
         }else if(isOnAir){  //Starts falling if in the air and not jumping
             isFalling = true;

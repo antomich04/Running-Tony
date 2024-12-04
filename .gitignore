@@ -13,7 +13,7 @@ target/
 *.ipr
 .idea
 .mvn
-
+artifacts/
 ### Eclipse ###
 .apt_generated
 .classpath

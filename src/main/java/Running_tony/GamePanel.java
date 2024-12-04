@@ -51,6 +51,7 @@ public class GamePanel extends Scene implements Runnable{
     final int CONTROLS = 4;
     public static final int GAME_OVER = 5;
     final int ENDING = 6;
+    final int OPTIONS = 7;
     public int gameState = TITLE_SCREEN;
 
     public GamePanel(Parent root){
@@ -63,8 +64,8 @@ public class GamePanel extends Scene implements Runnable{
 
     public void startGameThread(){
         gameThread = new Thread(this);
+        playMusic(1); //Plays menu music
         gameThread.start();
-        playMusic(2); //Plays menu music
     }
 
     @Override
@@ -100,6 +101,8 @@ public class GamePanel extends Scene implements Runnable{
                 goToNextLevel();
             }
         }
+        musicHandler.changeMusicVolume(ui.musicVolumeAmplitude);
+        sfxHandler.changeSFXVolume(ui.sfxVolumeAmplitude);
     }
 
     //Handles level transitions
@@ -127,7 +130,7 @@ public class GamePanel extends Scene implements Runnable{
             //If no more levels, displays an ending screen
             gameState = ENDING;
             stopMusic(); //Stops main music
-            playMusic(3); //Plays ending music
+            playMusic(2); //Plays ending music
         }
     }
 
@@ -179,7 +182,7 @@ public class GamePanel extends Scene implements Runnable{
     }
 
     public void playMusic(int index){
-        musicHandler.setFile(index);
+        musicHandler.setMusicFile(index);
         musicHandler.start();
         musicHandler.loopMusic();
     }
@@ -188,7 +191,7 @@ public class GamePanel extends Scene implements Runnable{
     }
 
     public void playSFX(int index){
-        sfxHandler.setFile(index);
+        sfxHandler.setSFXFile(index);
         sfxHandler.start();
         sfxHandler.loopSFX();
     }
@@ -196,7 +199,6 @@ public class GamePanel extends Scene implements Runnable{
     public void stopSFX(){
         sfxHandler.stop();
     }
-
     public MusicHandler getMusicHandler(){
         return musicHandler;
     }

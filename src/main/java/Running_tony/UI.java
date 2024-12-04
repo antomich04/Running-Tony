@@ -21,6 +21,9 @@ public class UI {
     Font smallFont = new Font("Arial",26);
     int menuSelector = -1;
     int pauseSelector = -1;
+    int optionsSelector = -1;
+    float musicVolumeAmplitude = 1.0f;
+    float sfxVolumeAmplitude = 1.0f;
     Image indicator = new Image("indicator.png");
 
     Text aboutText;
@@ -43,6 +46,8 @@ public class UI {
             drawGameOverScreen();
         }else if(gamePanel.gameState==gamePanel.ENDING){
             drawEndingScreen();
+        }else if(gamePanel.gameState==gamePanel.OPTIONS){
+            drawOptionsScreen();
         }
     }
 
@@ -124,11 +129,19 @@ public class UI {
             gc.drawImage(indicator,x-GamePanel.trueTileSize, y-28);
         }
 
-        pauseText = "CONTROLS";
+        pauseText = "SETTINGS";
         y += GamePanel.trueTileSize;
         gc.fillText(pauseText, x, y);
 
         if(pauseSelector==1){
+            gc.drawImage(indicator,x-GamePanel.trueTileSize, y-28);
+        }
+
+        pauseText = "CONTROLS";
+        y += GamePanel.trueTileSize;
+        gc.fillText(pauseText, x, y);
+
+        if(pauseSelector==2){
             gc.drawImage(indicator,x-GamePanel.trueTileSize, y-28);
         }
 
@@ -137,7 +150,7 @@ public class UI {
         y += GamePanel.trueTileSize;
         gc.fillText(pauseText, x, y);
 
-        if(pauseSelector==2){
+        if(pauseSelector==3){
             gc.drawImage(indicator,x-GamePanel.trueTileSize, y-28);
         }
 
@@ -213,7 +226,7 @@ public class UI {
         y += GamePanel.trueTileSize;
         gc.fillText(controlsText, x, y);
 
-        controlsText = "PRESS ESC TO CLOSE";
+        controlsText = "Press ESC to close";
         x = GamePanel.trueTileSize * 8;
         y += GamePanel.trueTileSize;
         gc.fillText(controlsText, x, y);
@@ -275,6 +288,39 @@ public class UI {
         y += GamePanel.trueTileSize * 2;
         gc.fillText(endingText,x,y);
 
+    }
+    private void drawOptionsScreen(){
+        //Background
+        gc.setFill(Color.ANTIQUEWHITE);
+        gc.fillOval(GamePanel.trueTileSize*5 - 5, GamePanel.trueTileSize*3 - 5,GamePanel.trueTileSize*10 + 10, GamePanel.trueTileSize*6 + 10);
+
+        gc.setFill(Color.LIGHTSKYBLUE);
+        gc.fillOval(GamePanel.trueTileSize*5,GamePanel.trueTileSize*3,GamePanel.trueTileSize*10, GamePanel.trueTileSize*6);
+
+        gc.setFont(smallFont);
+        gc.setFill(Color.WHITE);
+
+        String optionsText = "MUSIC VOLUME: " + musicVolumeAmplitude;
+
+        double x = GamePanel.trueTileSize * 8.25;
+        double y = GamePanel.trueTileSize * 5;
+        gc.fillText(optionsText, x, y);
+
+        if(optionsSelector==0){
+            gc.drawImage(indicator,x-GamePanel.trueTileSize, y-28);
+        }
+
+        optionsText = "SFX VOLUME: " + sfxVolumeAmplitude;
+        y += GamePanel.trueTileSize;
+        gc.fillText(optionsText, x, y);
+
+        if(optionsSelector==1){
+            gc.drawImage(indicator,x-GamePanel.trueTileSize, y-28);
+        }
+
+        optionsText = "Press ESC to close";
+        y += GamePanel.trueTileSize *2;
+        gc.fillText(optionsText, x, y);
     }
 
     private static int calculateTextX(GraphicsContext gc, String txt){
