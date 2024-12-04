@@ -1,6 +1,6 @@
 <i>RUNNING TONY</i>
 
-Running Tony is a project made as part of the course "Human-Computer Interaction" during the fifth semester at International Hellenic University. It is a simple 2d platformer game and it's goal is to successfully traverse through all levels without dying. The user can navigate through the menu options using W and S as well as ↑ and ↓ on his keyboard. <br>
+Running Tony is a project made as part of the course "Human-Computer Interaction" during the fifth semester at International Hellenic University. It is a simple 2d platformer game and it's goal is to successfully traverse through all levels without dying. The user can navigate through the menu options using W and S as well as 🡑 and 🡓 on his keyboard. The user can also change the game's audio volume by going to the SETTINGS section by pausing the game. From there, he can navigate the options he has by pressing W and S as well as ↑ and ↓. To decrease the volume he has to press either A or 🡐 . Accordingly, to increase the volume he has to press D or 🡒 .<br>
 The controls of the game are the following:
   <ul>
     <li>Move left: A</li>
