@@ -45,10 +45,10 @@ public class KeyInputHandler implements EventListener {
                 }
             }
         }else if(gamePanel.gameState==gamePanel.PLAYING){ //Player movement must be done only when playing
-            if(code==KeyCode.A){
+            if(code==KeyCode.A || code==KeyCode.LEFT){
                 leftPressed = true;
             }
-            if(code==KeyCode.D){
+            if(code==KeyCode.D || code==KeyCode.RIGHT){
                 rightPressed = true;
             }
             if(code==KeyCode.SHIFT){
