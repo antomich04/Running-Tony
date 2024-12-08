@@ -150,6 +150,7 @@ public class KeyInputHandler implements EventListener {
                     gamePanel.gameState = gamePanel.TITLE_SCREEN;
                     gamePanel.stopMusic();
                     gamePanel.playMusic(1); //Plays menu music
+                    gamePanel.playTimer = 0;
                 }
             }
         }
