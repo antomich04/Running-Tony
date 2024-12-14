@@ -276,7 +276,18 @@ public class UI {
         int y = GamePanel.trueTileSize * 2;
         gc.fillText(endingText,x,y);
 
-        endingText = "Total play time: " + df.format(gamePanel.playTimer) + " seconds";
+        if(gamePanel.playTimer>=60){
+            int minutes = (int)(gamePanel.playTimer/60);
+            double seconds = gamePanel.playTimer%60;
+            if(minutes>1){
+                endingText = "Total play time: " + minutes + " minutes, " + df.format(seconds) + " seconds";
+            }else{
+                endingText = "Total play time: 1 minute, " + df.format(seconds) + " seconds";
+            }
+        }else{
+            endingText = "Total play time: " + df.format(gamePanel.playTimer) + " seconds";
+        }
+
         gc.setFont(smallFont);
         x = GamePanel.trueTileSize * 7.5;
         y += GamePanel.trueTileSize * 2;
