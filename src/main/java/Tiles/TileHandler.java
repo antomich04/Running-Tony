@@ -4,6 +4,8 @@ import Entities.Hut;
 import Running_tony.GamePanel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+
 import java.io.*;
 import java.util.Objects;
 
@@ -98,11 +100,16 @@ public class TileHandler {
     public void draw(GraphicsContext gc){
         int y = 0;
 
+        gc.setFill(Color.valueOf("#097dab"));
+        gc.fillRect(0,0,GamePanel.screenWidth,GamePanel.screenHeight);
+
         for(int row = 0; row < GamePanel.screenRows; row++){
             int x = 0;
             for(int col = 0; col < GamePanel.screenColumns; col++){
                 int tileNum = mapNumbers[GamePanel.currentMap][col][row];
-                gc.drawImage(tile[tileNum].sprite, x, y, GamePanel.trueTileSize, GamePanel.trueTileSize);
+                if(tileNum!=0){
+                    gc.drawImage(tile[tileNum].sprite, x, y, GamePanel.trueTileSize, GamePanel.trueTileSize);
+                }
                 x += GamePanel.trueTileSize; //Moves to the next horizontal sprite
             }
             y += GamePanel.trueTileSize; //Moves to the next vertical sprite

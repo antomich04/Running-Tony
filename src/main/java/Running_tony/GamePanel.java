@@ -150,24 +150,21 @@ public class GamePanel extends Scene implements Runnable{
         //Resets player position to initial spawn point
         spawnPlayer(GamePanel.trueTileSize * 2, GamePanel.screenHeight - (2 * GamePanel.trueTileSize));
 
-        //Reinitializes the hut object for the first level
+        //Initializes the hut object for the first level
         tileHandler.hut = new Hut(tileHandler.hutX, tileHandler.hutY, trueTileSize);
     }
 
     //Repaints the components inside the game loop
     public void paintComponent(GraphicsContext gc) {
-        if(gameState == TITLE_SCREEN){
-            ui.draw(gc);
-        }else{
+        ui.draw(gc);
+        if(gameState==PLAYING){
             tileHandler.draw(gc);
             player.draw(gc);
 
             //Use the hut from the current map's tileHandler
-            if(tileHandler.hut != null){
+            if(tileHandler.hut!=null){
                 tileHandler.hut.draw(gc);
             }
-
-            ui.draw(gc);
         }
     }
 

@@ -22,8 +22,8 @@ public class UI {
     int menuSelector = -1;
     int pauseSelector = -1;
     int optionsSelector = -1;
-    float musicVolumeAmplitude = 1.0f;
-    float sfxVolumeAmplitude = 1.0f;
+    float musicVolumeAmplitude = 0.3f;
+    float sfxVolumeAmplitude = 0.3f;
     Image indicator = new Image("indicator.png");
 
     Text aboutText;
