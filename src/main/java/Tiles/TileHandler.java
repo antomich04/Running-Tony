@@ -5,7 +5,6 @@ import Running_tony.GamePanel;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-
 import java.io.*;
 import java.util.Objects;
 
@@ -23,7 +22,6 @@ public class TileHandler {
         mapNumbers = new int[GamePanel.totalMaps][GamePanel.screenColumns][GamePanel.screenRows];
         getTileImage();
         loadMap("/Levels/Level1.txt", mapNumbers, 0);
-        loadMap("/Levels/Level2.txt", mapNumbers, 1);
     }
 
 
